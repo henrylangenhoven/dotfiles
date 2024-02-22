@@ -1,0 +1,11 @@
+alias ll="ls -al"
+alias d="docker"
+alias dc="docker-compose"
+alias up="docker-compose up -d"
+alias down="docker-compose down"
+alias pull="docker-compose pull"
+alias upAll="docker-compose --profile everything up -d"
+alias downAll="docker-compose --profile everything down"
+alias pullAll="docker-compose --profile everything pull"
+
+alias dLogin="aws ecr get-login-password --region eu-central-1 --profile entrnce | docker login --username AWS --password-stdin 350124346922.dkr.ecr.eu-central-1.amazonaws.com"
