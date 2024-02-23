@@ -1,0 +1,20 @@
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+	credentialStore = gpg
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
+[commit]
+	gpgsign = true
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJSmV0Jrn1EtgBiNQZvIY4fCzqwu5NshuHKK77JvdOS8
+	email = henrylangenhoven8@gmail.com
+	name = Henry Langenhoven
+[init]
+	defaultBranch = main
+[credential "http://localhost:3000"]
+	provider = generic
