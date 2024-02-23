@@ -1,5 +1,8 @@
 alias szsh="source ~/.zshrc"
 alias ll="ls -al -p"
+alias update="sudo apt update -y && sudo apt upgrade -y"
+alias aptInstall="sudo sh ~/dotfiles/scripts/aptInstall.sh"
+
 alias d="docker"
 alias dc="docker-compose"
 alias up="docker-compose up -d"
