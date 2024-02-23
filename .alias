@@ -1,4 +1,5 @@
-alias ll="ls -al"
+alias szsh="source ~/.zshrc"
+alias ll="ls -al -p"
 alias d="docker"
 alias dc="docker-compose"
 alias up="docker-compose up -d"
