@@ -10,6 +10,7 @@ sort "$apt_file" | uniq > "$apt_file".tmp
 
 # Replace the original file with the sorted one
 mv "$apt_file".tmp "$apt_file"
+sudo chown henry ~/dotfiles/scripts/.apt
 
 # Initialize an empty string to hold the package names
 packages=""

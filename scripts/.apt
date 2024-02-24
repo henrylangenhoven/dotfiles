@@ -16,13 +16,13 @@ gnome-terminal
 gnome-tweaks
 gnupg
 gnupg2
-gradle
 libfuse2
 make
 pass
 snapd
 stow
 tilix
+unzip
 vim
 wget
 zsh
