@@ -16,12 +16,12 @@ gnome-terminal
 gnome-tweaks
 gnupg
 gnupg2
+guake
 libfuse2
 make
 pass
 snapd
 stow
-tilix
 unzip
 vim
 wget
