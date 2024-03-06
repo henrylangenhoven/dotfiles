@@ -1,3 +1,4 @@
+apache2-utils
 apt-transport-https
 bash-completion
 ca-certificates
@@ -17,8 +18,10 @@ gnome-tweaks
 gnupg
 gnupg2
 guake
+kitty
 libfuse2
 make
+net-tools
 pass
 snapd
 stow
