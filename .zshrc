@@ -48,7 +48,7 @@ ENABLE_CORRECTION="false"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,3 +92,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 source ~/dotfiles/.alias
 source ~/dotfiles/.env
+
+eval "$(atuin init zsh)"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
