@@ -1,6 +1,6 @@
 alias szsh="source ~/.zshrc"
 alias ll="ls -al -p"
-alias update="sudo apt update -y && sudo apt upgrade -y"
+alias update="sudo nala update && sudo nala upgrade -y"
 alias aptInstall="sudo sh ~/dotfiles/scripts/aptInstall.sh"
 
 alias dLogin="aws ecr get-login-password --region eu-central-1 --profile entrnce | docker login --username AWS --password-stdin 350124346922.dkr.ecr.eu-central-1.amazonaws.com"
