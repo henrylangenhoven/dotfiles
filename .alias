@@ -22,3 +22,4 @@ alias kcm="kubectl config use-context minikube"
 
 alias idea="/snap/intellij-idea-ultimate/current/bin/idea.sh"
 alias lzd="lazydocker"
+alias lzg="lazygit"
