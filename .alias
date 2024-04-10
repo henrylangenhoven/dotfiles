@@ -20,6 +20,6 @@ alias kcc="kubectl config current-context"
 alias kct="kubectl config use-context arn:aws:eks:eu-central-1:654261343536:cluster/tst"
 alias kcm="kubectl config use-context minikube"
 
-alias idea="/snap/intellij-idea-ultimate/current/bin/idea.sh"
+alias idea="/home/henry/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea.sh"
 alias lzd="lazydocker"
 alias lzg="lazygit"
