@@ -98,3 +98,4 @@ eval "$(atuin init zsh)"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+eval "$(atuin init zsh)"
