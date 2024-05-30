@@ -17,11 +17,24 @@ if [ ! -f "$repo_file" ]; then
   exit 1
 fi
 
-# Loop through each line in the file
-while IFS= read -r repo || [[ -n "$repo" ]]; do
+# Function to clone a single repository
+clone_repo() {
+  local repo=$1
+  local destination="$destination_folder/$repo"
+
   # Create destination folder if it doesn't exist
-  mkdir -p "$destination_folder/$repo"
+  mkdir -p "$destination"
 
   # Clone the repository into the specified destination folder
-  git clone "https://${username}:${password}@github.com/EnergyExchangeEnablersBV/$repo.git" "$destination_folder/$repo"
+  git clone "https://${username}:${password}@github.com/EnergyExchangeEnablersBV/$repo.git" "$destination"
+}
+
+# Loop through each line in the file and clone repos concurrently
+while IFS= read -r repo || [[ -n "$repo" ]]; do
+  clone_repo "$repo" &
 done < "$repo_file"
+
+# Wait for all background tasks to complete
+wait
+
+echo "All repositories have been cloned."

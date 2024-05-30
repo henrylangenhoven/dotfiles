@@ -15,13 +15,13 @@ fi
 # Change directory to the destination folder
 cd "$destination_folder" || exit
 
-# Loop through each line in the file
-while IFS= read -r repo || [[ -n "$repo" ]]; do
-  # Check if the folder exists (repository is cloned)
+# Function to update a single repository
+update_repo() {
+  local repo=$1
   if [ -d "$repo" ]; then
     echo "Updating $repo ..."
     # Change into the repository directory
-    cd "$repo" || continue
+    cd "$repo" || return
     # Pull changes from the remote repository
     git pull
     # Go back to the main directory
@@ -29,4 +29,14 @@ while IFS= read -r repo || [[ -n "$repo" ]]; do
   else
     echo "Skipping $repo - Directory not found."
   fi
+}
+
+# Loop through each line in the file and update repos concurrently
+while IFS= read -r repo || [[ -n "$repo" ]]; do
+  update_repo "$repo" &
 done < "$repo_file"
+
+# Wait for all background tasks to complete
+wait
+
+echo "All repositories have been updated."
