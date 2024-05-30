@@ -4,7 +4,7 @@
 repo_file="$HOME/dotfiles/entrnce/.repos"
 
 # Destination folder for cloning
-destination_folder="$HOME/dev/entrnce"
+destination_folder="$HOME/entrnce"
 
 # Check if the file exists
 if [ ! -f "$repo_file" ]; then
