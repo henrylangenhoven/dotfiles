@@ -14,6 +14,7 @@ entrnce-k8s-gitops
 entrnce-scripts
 ephemeral-environment
 ephemeral-environment-playground
+trader-brp-stub
 trader-intersolve-mock
 trader-robot
 trader-shared
