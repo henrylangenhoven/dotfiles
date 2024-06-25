@@ -15,7 +15,7 @@ if [ ! -f "${REPO_FILE}" ]; then
 fi
 
 # Directory where your repositories are cloned
-BASE_DIR="$HOME/entrnce"
+BASE_DIR="$ENTRNCE"
 
 # Iterate through each repository listed in the .repos file and update the remote URL
 while IFS= read -r REPO; do

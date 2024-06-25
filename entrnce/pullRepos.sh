@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Path to your file
-repo_file="$HOME/dotfiles/entrnce/.repos"
+repo_file="$DOTFILES/entrnce/.repos"
 
 # Destination folder for cloning
-destination_folder="$HOME/entrnce"
+destination_folder="$ENTRNCE"
 
 # Check if the file exists
 if [ ! -f "$repo_file" ]; then

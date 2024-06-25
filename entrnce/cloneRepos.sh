@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Path to your file
-repo_file="$HOME/dotfiles/entrnce/.repos"
+repo_file="$DOTFILES/entrnce/.repos"
 
 # Destination folder for cloning (hardcoded)
-destination_folder="$HOME/entrnce"
+destination_folder="$ENTRNCE"
 
 # Prompt for GitHub username and password
 read -r -p "Enter your GitHub username: " username
