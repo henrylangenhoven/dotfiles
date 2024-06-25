@@ -1,13 +1,21 @@
 #!/bin/bash
 
+# Load environment variables from .env file if it exists
+if [ -f .env ]; then
+    export "$(cat .env | xargs)"
+fi
+
+# Check if the repository name is set
+if [ -z "$REPOSITORY_NAME" ]; then
+    echo "REPOSITORY_NAME is not set. Please set it in the .env file."
+    exit 1
+fi
+
 # Check if the .build_images file exists
 if [ ! -f .build_images ]; then
     echo ".build_images file not found!"
     exit 1
 fi
-
-# Repository name
-repository_name="350124346922.dkr.ecr.eu-central-1.amazonaws.com/entrnce"
 
 # Base directory for all projects
 base_dir="$ENTRNCE"
@@ -61,14 +69,14 @@ while IFS= read -r line; do
     fi
 
     # Build the Docker image
-    docker build -t "$repository_name/$image_name:$tag" "$folder"
+    docker build -t "$REPOSITORY_NAME/$image_name:$tag" "$folder"
 
     # Check if the build was successful
     if [ $? -ne 0 ]; then
-        echo "Failed to build image $repository_name/$image_name:$tag. Exiting..."
+        echo "Failed to build image $REPOSITORY_NAME/$image_name:$tag. Exiting..."
         exit 1
     else
-        echo "Successfully built image $repository_name/$image_name:$tag"
+        echo "Successfully built image $REPOSITORY_NAME/$image_name:$tag"
     fi
 
     # Navigate back to the base directory
