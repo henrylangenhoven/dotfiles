@@ -20,8 +20,8 @@ while IFS= read -r line; do
     fi
 
     # Read the project directory name and tag from the line
-    project_dir=$(echo $line | awk '{print $1}')
-    tag=$(echo $line | awk '{print $2}')
+    project_dir=$(echo "$line" | awk '{print $1}')
+    tag=$(echo "$line" | awk '{print $2}')
 
     # Determine the image name (same as the project directory name)
     image_name=$project_dir
@@ -35,6 +35,31 @@ while IFS= read -r line; do
         continue
     fi
 
+    # Navigate to the project directory
+    cd "$folder" || exit
+
+    # Build the project if it is an npm project
+    if [ -f "package.json" ]; then
+        echo "Building npm project in $folder"
+        npm install
+        npm run build:shared
+        npm run build
+        if [ $? -ne 0 ]; then
+            echo "Failed to build npm project in $folder. Exiting..."
+            exit 1
+        fi
+    # Build the project if it is a Gradle project
+    elif [ -f "build.gradle" ]; then
+        echo "Building Gradle project in $folder"
+        ./gradlew build
+        if [ $? -ne 0 ]; then
+            echo "Failed to build Gradle project in $folder. Exiting..."
+            exit 1
+        fi
+    else
+        echo "No recognized build file found in $folder. Skipping build step..."
+    fi
+
     # Build the Docker image
     docker build -t "$repository_name/$image_name:$tag" "$folder"
 
@@ -45,6 +70,9 @@ while IFS= read -r line; do
     else
         echo "Successfully built image $repository_name/$image_name:$tag"
     fi
+
+    # Navigate back to the base directory
+    cd "$base_dir" || exit
 done < .build_images
 
 echo "All images built successfully."
