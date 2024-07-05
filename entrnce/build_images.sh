@@ -20,6 +20,9 @@ fi
 # Base directory for all projects
 base_dir="$ENTRNCE"
 
+# Record the start time
+start_time=$(date +%s)
+
 # Loop through each line in the .build_images file
 while IFS= read -r line; do
     # Skip empty lines or lines starting with #
@@ -82,5 +85,12 @@ while IFS= read -r line; do
     # Navigate back to the base directory
     cd "$base_dir" || exit
 done < .build_images
+
+# Record the end time
+end_time=$(date +%s)
+
+# Calculate and display the duration
+duration=$((end_time - start_time))
+echo "Script run duration: $duration seconds"
 
 echo "All images built successfully."
