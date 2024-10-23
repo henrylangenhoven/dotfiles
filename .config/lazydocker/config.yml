@@ -1,0 +1,7 @@
+gui:
+  returnImmediately: true
+  containerStatusHealthStyle: "icon"
+replacements:
+  imageNamePrefixes:
+    '350124346922.dkr.ecr.eu-central-1.amazonaws.com': '...prd'
+    '654261343536.dkr.ecr.eu-central-1.amazonaws.com': '...tst'
