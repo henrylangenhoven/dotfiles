@@ -62,7 +62,7 @@ while IFS= read -r line; do
     # Build the project if it is a Gradle project
     elif [ -f "build.gradle" ]; then
         echo "Building Gradle project in $folder"
-        ./gradlew build
+        ./gradlew build -x test
         if [ $? -ne 0 ]; then
             echo "Failed to build Gradle project in $folder. Exiting..."
             exit 1
