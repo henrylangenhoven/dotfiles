@@ -19,6 +19,3 @@ echo "$namespaces" | while read -r ns; do
     fi
   ) &
 done
-
-# Wait for all background jobs to finish
-wait
