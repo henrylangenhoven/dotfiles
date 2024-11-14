@@ -1,0 +1,19 @@
+encode() {
+  if [ $# -eq 1 ]; then
+    echo -n "$1" | base64
+  else
+    for word in "$@"; do
+      echo "$word -> $(echo -n "$word" | base64)"
+    done
+  fi
+}
+
+decode() {
+  if [ $# -eq 1 ]; then
+    echo "$1" | base64 --decode
+  else
+    for word in "$@"; do
+      echo "$word -> $(echo "$word" | base64 --decode)"
+    done
+  fi
+}

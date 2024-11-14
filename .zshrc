@@ -92,6 +92,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 source ~/dotfiles/.alias
 source ~/dotfiles/.env
+source ~/dotfiles/.functions
 
 eval "$(atuin init zsh)"
 
