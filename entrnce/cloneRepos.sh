@@ -28,7 +28,7 @@ clone_repo() {
   mkdir -p "$destination"
 
   # Clone the repository into the specified destination folder
-  echo "will now run: git clone \"https://${username}:${token}@github.com/EnergyExchangeEnablersBV/${repo}.git\" \"$destination\""
+  echo "cloning \"https://${username}:TOKEN@github.com/EnergyExchangeEnablersBV/${repo}.git\" into \"$destination\""
   git clone "https://${username}:${token}@github.com/EnergyExchangeEnablersBV/${repo}.git" "$destination"
 }
 
